@@ -1,0 +1,61 @@
+print ("Welcome to the Ceasar Cipher")
+choice = input("Type ENC to encode a message or DEC to decode:")
+if choice == ("ENC"):
+  keychoice = input ("Type DEF to use the default key, or NEW to use your own key:")
+  if keychoice == ("DEF"):
+    text = input("Type a message you want to encode: ")
+    text = text.upper()
+    encoding = ""
+    for c in text:
+      if ord(c) >= 65 and ord(c) <= 86:
+        c = chr(ord(c) + 4)
+      if ord(c) >= 87 and ord(c) <= 90:
+        c = chr(ord(c) - 22)
+      encoding = encoding + c
+    print(encoding)
+  #extension: player inserts their own key
+  if keychoice == ("NEW"):
+    text = input("Type your own KEY=:")
+    text = text.upper()
+    encoding = ""
+    for c in text:
+      newKey = ord(c) - 65 
+    message = input("Type a message you want to encode: ")
+    for c in message:
+        if ord(c) >= 65 and ord(c) <=90:
+          c = chr(ord(c) + (newKey))
+        if ord(c) >=91:
+          c = chr(ord(c) -26 )
+        encoding = encoding + c
+    print(encoding)
+
+#player can DECode a message 
+if choice == ("DEC"):
+  keychoice = input ("Type DEF to use the default key, or NEW to use your own key:")
+  if keychoice == ("DEF"):
+    text = input("Type a message you want to decode: ")
+    text = text.upper()
+    decoding = ""
+    for c in text:
+      if ord(c) >= 65 and ord(c) <= 86:
+        c = chr(ord(c) + 4)
+      if ord(c) >= 87 and ord(c) <= 90:
+        c = chr(ord(c) - 22)
+      decoding = decoding + c
+    print(decoding)
+#extension: player inserts their own key
+  if keychoice == ("NEW"):
+    text = input("Type your own KEY=:")
+    text = text.upper()
+    decoding = ""
+    for c in text:
+      newKey = ord(c) - 65 
+    message = input("Type a message you want to decode: ")
+    for c in message:
+        if ord(c) >= 65 and ord(c) <=90:
+          c = chr(ord(c) - (newKey))
+        if ord(c) <=64:
+          c = chr(ord(c) + 26 )
+        decoding = decoding + c
+    print(decoding)
+
