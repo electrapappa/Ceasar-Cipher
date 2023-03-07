@@ -1,0 +1,120 @@
+import requests
+import string
+import re 
+response = requests.get("https://www.gutenberg.org/files/5200/5200-h/5200-h.htm")
+data = response.text
+#make uppercase:
+data = data.upper()
+#remove spaces:
+data = data.translate({ord(c): None for c in string.whitespace})
+# remove puntuation:
+data = data.translate(str.maketrans('', '', string.punctuation))
+# remove html tags: 
+data = re.compile(r'<[^>]+>').sub('', data)
+#calculate number of each letter:
+A = "A"
+countA = data.count(A)
+B = "B"
+countB = data.count(B)
+C = "C"
+countC = data.count(C)
+D = "D"
+countD = data.count(D)
+E = "E"
+countE = data.count(E)
+F = "F"
+countF = data.count(F)
+G = "G"
+countG = data.count(G)
+H = "H"
+countH = data.count(H)
+I = "I"
+countI = data.count(I)
+J = "J"
+countJ = data.count(J)
+K = "K"
+countK = data.count(K)
+L = "L"
+countL = data.count(L)
+M = "M"
+countM = data.count(M)
+N = "N"
+countN = data.count(N)
+O = "O"
+countO = data.count(O)
+P = "P"
+countP = data.count(P)
+Q = "Q"
+countQ = data.count(Q)
+R = "R"
+countR = data.count(R)
+S = "S"
+countS = data.count(S)
+T = "T"
+countT = data.count(T)
+U = "U"
+countU = data.count(U)
+V = "V"
+countV = data.count(V)
+W = "W"
+countW = data.count(W)
+X = "X"
+countX = data.count(X)
+Y = "Y"
+countY = data.count(Y)
+Z = "Z"
+countZ = data.count(Z)
+alphabetSum = (countA + countB + countC + countD + countE + countF + countG + countH + countI + countJ + countK + countL + countM + countN + countO + countP + countQ + countR + countS + countT + countU + countV + countW + countX + countY + countZ)
+#use above calculations to calculate frequency of each letter (if i want a percentage i can then multiply this number by 100): 
+Afrequency = (countA / alphabetSum )
+print ("A frequency:", round (Afrequency, 3))
+Bfrequency = (countB / alphabetSum )
+print ("B frequency:", round (Bfrequency, 3))
+Cfrequency = (countC / alphabetSum )
+print ("C frequency:", round (Cfrequency, 3))
+Dfrequency = (countD / alphabetSum )
+print ("D frequency:", round (Dfrequency, 3))
+Efrequency = (countE / alphabetSum )
+print ("E frequency:", round (Efrequency, 3))
+Ffrequency = (countF / alphabetSum )
+print ("F frequency:", round (Ffrequency, 3))
+Gfrequency = (countG / alphabetSum )
+print ("G frequency:", round (Gfrequency, 3))
+Hfrequency = (countH / alphabetSum )
+print ("H frequency:", round (Hfrequency, 3))
+Ifrequency = (countI / alphabetSum )
+print ("I frequency:", round (Ifrequency, 3))
+Jfrequency = (countJ / alphabetSum )
+print ("J frequency:", round (Jfrequency, 3))
+Kfrequency = (countK / alphabetSum )
+print ("K frequency:", round (Kfrequency, 3))
+Lfrequency = (countL / alphabetSum )
+print ("L frequency:", round (Lfrequency, 3))
+Mfrequency = (countM / alphabetSum )
+print ("M frequency:", round (Mfrequency, 3))
+Nfrequency = (countN / alphabetSum )
+print ("N frequency:", round (Nfrequency, 3))
+Ofrequency = (countO / alphabetSum )
+print ("O frequency:", round (Ofrequency, 3))
+Pfrequency = (countP / alphabetSum )
+print ("P frequency:", round (Pfrequency, 3))
+Qfrequency = (countQ / alphabetSum )
+print ("Q frequency:", round (Qfrequency, 3))
+Rfrequency = (countR / alphabetSum )
+print ("R frequency:", round (Rfrequency, 3))
+Sfrequency = (countS / alphabetSum )
+print ("S frequency:", round (Sfrequency, 3))
+Tfrequency = (countT / alphabetSum )
+print ("T frequency:", round (Tfrequency, 3))
+Ufrequency = (countU / alphabetSum )
+print ("U frequency:", round (Ufrequency, 3))
+Vfrequency = (countV / alphabetSum )
+print ("V frequency:", round (Vfrequency, 3))
+Wfrequency = (countW / alphabetSum )
+print ("W frequency:", round (Wfrequency, 3))
+Xfrequency = (countX / alphabetSum )
+print ("X frequency:", round (Xfrequency, 3))
+Yfrequency = (countY / alphabetSum )
+print ("Y frequency:", round (Yfrequency, 3))
+Zfrequency = (countZ / alphabetSum )
+print ("Z frequency:", round (Zfrequency, 4))
