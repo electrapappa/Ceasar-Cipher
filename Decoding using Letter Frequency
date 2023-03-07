@@ -1,0 +1,164 @@
+Afrequency = 0.074
+Bfrequency = 0.015
+Cfrequency = 0.023
+Dfrequency = 0.043
+Efrequency = 0.126
+Ffrequency = 0.023
+Gfrequency = 0.025
+Hfrequency = 0.07
+Ifrequency = 0.065
+Jfrequency = 0.002
+Kfrequency = 0.008
+Lfrequency = 0.015
+Mfrequency = 0.024
+Nfrequency = 0.064
+Ofrequency = 0.081
+Pfrequency = 0.018
+Qfrequency = 0.001
+Rfrequency = 0.061
+Sfrequency = 0.059
+Tfrequency = 0.097
+Ufrequency = 0.027
+Vfrequency = 0.009
+Wfrequency = 0.024
+Xfrequency = 0.001
+Yfrequency = 0.018
+Zfrequency = 0.0002
+
+import requests
+import string
+text = input("Type a message you want to decode: ")
+#make uppercase:
+text = text.upper()
+#remove spaces:
+text = text.translate({ord(c): None for c in string.whitespace})
+# remove puntuation:
+text = text.translate(str.maketrans('', '', string.punctuation))
+# calculate the total number of characters in the cipher:
+totalcharactercount = len(text)
+#calculate the number of each character
+
+i = 0
+while i <26:
+  decoding = ""
+  for c in text:
+    if ord(c) >= 65 and ord(c) <= 90:
+     c = chr(ord(c) + i)
+    if ord(c) >=91:
+      c = chr(ord(c) -26 ) 
+    decoding = decoding + c
+  print("using the letter", chr(65+i) , "as key, the message is:", decoding)
+  i = i+1
+  A = "A"
+  countA = decoding.count(A)
+  B = "B"
+  countB = decoding.count(B)
+  C = "C"
+  countC = decoding.count(C)
+  D = "D"
+  countD = decoding.count(D)
+  E = "E"
+  countE = decoding.count(E)
+  F = "F"
+  countF = decoding.count(F)
+  G = "G"
+  countG = decoding.count(G)
+  H = "H"
+  countH = decoding.count(H)
+  I = "I"
+  countI = decoding.count(I)
+  J = "J"
+  countJ = decoding.count(J)
+  K = "K"
+  countK = decoding.count(K)
+  L = "L"
+  countL = decoding.count(L)
+  M = "M"
+  countM = decoding.count(M)
+  N = "N"
+  countN = decoding.count(N)
+  O = "O"
+  countO = decoding.count(O)
+  P = "P"
+  countP = decoding.count(P)
+  Q = "Q"
+  countQ = decoding.count(Q)
+  R = "R"
+  countR = decoding.count(R)
+  S = "S"
+  countS = decoding.count(S)
+  T = "T"
+  countT = decoding.count(T)
+  U = "U"
+  countU = decoding.count(U)
+  V = "V"
+  countV = decoding.count(V)
+  W = "W"
+  countW = decoding.count(W)
+  X = "X"
+  countX = decoding.count(X)
+  Y = "Y"
+  countY = decoding.count(Y)
+  Z = "Z"
+  countZ = decoding.count(Z)
+# now i need to calculate the Chi-squared statistic for each possible key (so each letter of the alhabet). I first have to calculate the expected number of times an x letter should appear. I calulate this by taking the number of characters in the cipher text and multiply this by the x letter's frequency in the english language. then to calculate chi-square = (number of the x letter in text minus(-) expected number of times the x letter should appear), then i square this and i devide it by the expected number of times. So the key that has the lower chi-square is the key that deciphers the cipher text 
+  A_ExpectedFrequency = totalcharactercount * Afrequency 
+  A_ChiSquare = (countA - A_ExpectedFrequency)** 2 / A_ExpectedFrequency 
+  B_ExpectedFrequency = totalcharactercount * Bfrequency 
+  B_ChiSquare = (countB - B_ExpectedFrequency)** 2 / B_ExpectedFrequency 
+  C_ExpectedFrequency = totalcharactercount * Cfrequency 
+  C_ChiSquare = (countC - C_ExpectedFrequency)** 2 / C_ExpectedFrequency 
+  D_ExpectedFrequency = totalcharactercount * Dfrequency 
+  D_ChiSquare = (countD - D_ExpectedFrequency)** 2 / D_ExpectedFrequency
+  E_ExpectedFrequency = totalcharactercount * Efrequency 
+  E_ChiSquare = (countE - E_ExpectedFrequency)** 2 / E_ExpectedFrequency  
+  F_ExpectedFrequency = totalcharactercount * Ffrequency 
+  F_ChiSquare = (countF - F_ExpectedFrequency)** 2 / F_ExpectedFrequency 
+  G_ExpectedFrequency = totalcharactercount * Gfrequency 
+  G_ChiSquare = (countG - G_ExpectedFrequency)** 2 / G_ExpectedFrequency 
+  H_ExpectedFrequency = totalcharactercount * Hfrequency 
+  H_ChiSquare = (countH - H_ExpectedFrequency)** 2 / H_ExpectedFrequency 
+  I_ExpectedFrequency = totalcharactercount * Ifrequency 
+  I_ChiSquare = (countI - I_ExpectedFrequency)** 2 / I_ExpectedFrequency
+  J_ExpectedFrequency = totalcharactercount * Jfrequency 
+  J_ChiSquare = (countJ - J_ExpectedFrequency)** 2 /  J_ExpectedFrequency 
+  K_ExpectedFrequency = totalcharactercount * Kfrequency 
+  K_ChiSquare = (countK - K_ExpectedFrequency)** 2 / K_ExpectedFrequency  
+  L_ExpectedFrequency = totalcharactercount * Lfrequency 
+  L_ChiSquare = (countL - L_ExpectedFrequency)** 2 / L_ExpectedFrequency 
+  M_ExpectedFrequency = totalcharactercount * Mfrequency 
+  M_ChiSquare = (countM - M_ExpectedFrequency)** 2 / M_ExpectedFrequency 
+  N_ExpectedFrequency = totalcharactercount * Nfrequency 
+  N_ChiSquare = (countN - N_ExpectedFrequency)** 2 / N_ExpectedFrequency 
+  O_ExpectedFrequency = totalcharactercount * Ofrequency 
+  O_ChiSquare = (countO - O_ExpectedFrequency)** 2 / O_ExpectedFrequency 
+  P_ExpectedFrequency = totalcharactercount * Pfrequency 
+  P_ChiSquare = (countP - P_ExpectedFrequency)** 2 / P_ExpectedFrequency 
+  Q_ExpectedFrequency = totalcharactercount * Qfrequency 
+  Q_ChiSquare = (countQ - Q_ExpectedFrequency)** 2 / Q_ExpectedFrequency 
+  R_ExpectedFrequency = totalcharactercount * Rfrequency 
+  R_ChiSquare = (countR - R_ExpectedFrequency)** 2 / R_ExpectedFrequency 
+  S_ExpectedFrequency = totalcharactercount * Sfrequency 
+  S_ChiSquare = (countS - S_ExpectedFrequency)** 2 / S_ExpectedFrequency 
+  T_ExpectedFrequency = totalcharactercount * Tfrequency 
+  T_ChiSquare = (countT - T_ExpectedFrequency)** 2 / T_ExpectedFrequency 
+  U_ExpectedFrequency = totalcharactercount * Ufrequency 
+  U_ChiSquare = (countU - U_ExpectedFrequency)** 2 / U_ExpectedFrequency 
+  V_ExpectedFrequency = totalcharactercount * Vfrequency 
+  V_ChiSquare = (countV - V_ExpectedFrequency)** 2 / V_ExpectedFrequency
+  W_ExpectedFrequency = totalcharactercount * Wfrequency 
+  W_ChiSquare = (countW - W_ExpectedFrequency)** 2 / W_ExpectedFrequency  
+  X_ExpectedFrequency = totalcharactercount * Xfrequency 
+  X_ChiSquare = (countX - X_ExpectedFrequency)** 2 / X_ExpectedFrequency 
+  Y_ExpectedFrequency = totalcharactercount * Yfrequency 
+  Y_ChiSquare = (countY - Y_ExpectedFrequency)** 2 / Y_ExpectedFrequency 
+  Z_ExpectedFrequency = totalcharactercount * Zfrequency 
+  Z_ChiSquare = (countZ - Z_ExpectedFrequency)** 2 / Z_ExpectedFrequency 
+  ChiSquareSum = (A_ChiSquare + B_ChiSquare + C_ChiSquare+ D_ChiSquare + E_ChiSquare + F_ChiSquare + G_ChiSquare + H_ChiSquare + I_ChiSquare + J_ChiSquare + K_ChiSquare + L_ChiSquare + M_ChiSquare + N_ChiSquare + O_ChiSquare + P_ChiSquare + Q_ChiSquare + R_ChiSquare + S_ChiSquare + T_ChiSquare + U_ChiSquare + V_ChiSquare + W_ChiSquare + X_ChiSquare + Y_ChiSquare + Z_ChiSquare)
+  print ("this is the Chi-Square sum for the currect key:", round(ChiSquareSum,2))
+  print("")
+print ("The key with the smallest Chi-Square sum is the correct key to decode this cipher")
+  
+
+
+
